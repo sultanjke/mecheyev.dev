@@ -44,7 +44,14 @@ export default function Tools() {
     <section className="relative isolate">
       <BluredCircle radius={200} top="100%" left="60%" bg="bg-bronze2A" blur="200px" className="hidden md:block" />
       <BluredCircle radius={200} top="50%" left="70%" bg="bg-sage2A " blur="200px" className="hidden md:block" />
-      <BluredCircle radius={200} top="50%" left="20%" bg="bg-violet2A opacity-70" blur="200px" className="hidden md:block" />
+      <BluredCircle
+        radius={200}
+        top="50%"
+        left="20%"
+        bg="bg-violet2A opacity-70"
+        blur="200px"
+        className="hidden md:block"
+      />
       <div className="mx-auto max-w-page  ">
         <div className="flex justify-between gap-8">
           <h2 className="H1" id="tools">
@@ -306,15 +313,17 @@ function Li(props) {
       transition-filter duration-1s ease
       `}
     >
-      <GlowingEffect
-        spread={40}
-        glow={true}
-        disabled={props.isMobile}
-        proximity={64}
-        inactiveZone={0.01}
-        borderWidth={1}
-        gradient={gradient}
-      />
+      {!props.isMobile && (
+        <GlowingEffect
+          spread={40}
+          glow={true}
+          disabled={false}
+          proximity={64}
+          inactiveZone={0.01}
+          borderWidth={1}
+          gradient={gradient}
+        />
+      )}
 
       <GlowOverlay
         className={`-z-3 rd-inherit  ${props?.glowColor ?? "bg-base4A"}
