@@ -2,6 +2,7 @@ import Icon from '@/components/ui/Icon'
 import Space from '@/components/ui/Space'
 import { getPostById, getAllPosts } from '@/lib/api'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
  
 // Generate the post, note that this is a "react server component"! it is
 // allowed to be async
@@ -10,7 +11,11 @@ export default async function Post({
 }: {
   params: { id: string }
 }) {
-  const { html, title, date , subtitle } = await getPostById(id)
+  const post = await getPostById(id)
+
+  if (!post) notFound()
+
+  const { html, title, date , subtitle } = post
   return (
     <div className='mx-auto max-w-page'> 
       <Link href='/blog' className='flex  gap-2 c-base11'>
@@ -49,7 +54,11 @@ export async function generateMetadata({
 }: {
   params: { id: string }
 }) {
-  const { title, subtitle } = await getPostById(id)
+  const post = await getPostById(id)
+
+  if (!post) notFound()
+
+  const { title, subtitle } = post
   return {
     title: `${title}, ${subtitle} | Hamid K. Blog`,
     description: 'A Blog Post by Hamid K. Blog',

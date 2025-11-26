@@ -1,6 +1,6 @@
 {
-  "name": "awww.dev",
-  "description": "Hamid K. Portfolio Website",
+  "name": "mecheyev.dev",
+  "description": "Mecheyev S. Portfolio Website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,8 +14,8 @@
     "build": "pnpm unocss:build && next build",
     "start": "next start",
     "lint": "next lint",
-    "unocss:dev": "unocss -c uno.config.ts -o styles/uno.css --watch  \"./**/*.tsx\"  \"./**/*.md\" \"./lib/api.ts\" ",
-    "unocss:build": "unocss -c uno.config.ts -o styles/uno.css  \"./**/*.tsx\"  \"./**/*.md\" \"./lib/api.ts\" "
+    "unocss:dev": "unocss -c uno.config.cjs -o styles/uno.css --watch  \"./**/*.tsx\"  \"./**/*.md\" \"./lib/api.ts\" ",
+    "unocss:build": "unocss -c uno.config.cjs -o styles/uno.css  \"./**/*.tsx\"  \"./**/*.md\" \"./lib/api.ts\" "
   },
   "dependencies": {
     "@radix-ui/colors": "^3.0.0",
@@ -50,6 +50,9 @@
     "unocss-preset-radix-ui-colors": "^1.0.0"
   },
   "devDependencies": {
+    "@iconify-json/logos": "^1.2.4",
+    "@iconify-json/ph": "^1.2.2",
+    "@iconify-json/svg-spinners": "^1.2.2",
     "@types/node": "18.8.5",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",

@@ -70,10 +70,20 @@ export type Post = {
   [key: string]: any;
 }
 
-export async function getPostById(id: string) {
-  const realId = id.replace(/\.md$/, '')
+export async function getPostById(id: string): Promise<Post | null> {
+  if (!id) return null
+
+  const realId = `${id}`.replace(/\.md$/, '')
   const fullPath = path.join(postsDirectory, `${realId}.md`)
-  const rawFile = await fs.promises.readFile(fullPath, 'utf8')
+
+  let rawFile: string
+
+  try {
+    rawFile = await fs.promises.readFile(fullPath, 'utf8')
+  } catch {
+    return null
+  }
+
   const { data, content } = matter(rawFile, {
     engines: {
       yaml: (source) => yaml.load(source) as object
@@ -111,6 +121,13 @@ export async function getPageMarkdown(string_: string) {
 }
  
 export async function getAllPosts() {
-  const posts = await Promise.all(getPostFiles().map(id => getPostById(id)))
-  return posts.filter(p => !p.draft).sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+  const posts = await Promise.all(
+    getPostFiles()
+      .filter(name => name.endsWith('.md'))
+      .map(id => getPostById(id))
+  )
+
+  return posts
+    .filter((p): p is Post => Boolean(p) && !p.draft)
+    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
 }

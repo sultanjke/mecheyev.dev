@@ -35,16 +35,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-
-*.local.sql
-
-
-/pages/ui-test.tsx
-
 /styles/uno.css
-
-/pages/ui/index.tsx
-
-todo
-
-.todo
