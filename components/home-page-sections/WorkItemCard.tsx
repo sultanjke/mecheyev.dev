@@ -34,7 +34,7 @@ export function CardContainer({ children, gradient, borderGradeintFrom, borderGr
         <CardGlow gradient={gradient} />
       </div>
       <div
-        className={`h-full rd-3  grid overflow-clip  sahdow-2xl 
+        className={`h-full rd-3  grid overflow-clip  sahdow-2xl
       bg-clip-padding grid  `}
         style={{
           gridArea: "1/1/-1/-1",

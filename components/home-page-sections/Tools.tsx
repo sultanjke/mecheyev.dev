@@ -5,7 +5,7 @@ import Icon from "@/components/ui/Icon";
 import Space from "../ui/Space";
 import Button from "../ui/button";
 import ToolTip from "../ui/Tooltip";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import GradientBorderOverlay from "../ui/GradientBorderOverlay";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 
@@ -29,12 +29,22 @@ export default function Tools() {
   const [isToolitip1Open, setIsTooltip1Open] = useState<boolean>(false);
   const [isToolitip2Open, setIsTooltip2Open] = useState<boolean>(false);
   const [isToolitip3Open, setIsTooltip3Open] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   return (
     <section className="relative isolate">
-      <BluredCircle radius={200} top="100%" left="60%" bg="bg-bronze2A" blur="200px" />
-      <BluredCircle radius={200} top="50%" left="70%" bg="bg-sage2A " blur="200px" />
-      <BluredCircle radius={200} top="50%" left="20%" bg="bg-violet2A opacity-70" blur="200px" />
+      <BluredCircle radius={200} top="100%" left="60%" bg="bg-bronze2A" blur="200px" className="hidden md:block" />
+      <BluredCircle radius={200} top="50%" left="70%" bg="bg-sage2A " blur="200px" className="hidden md:block" />
+      <BluredCircle radius={200} top="50%" left="20%" bg="bg-violet2A opacity-70" blur="200px" className="hidden md:block" />
       <div className="mx-auto max-w-page  ">
         <div className="flex justify-between gap-8">
           <h2 className="H1" id="tools">
@@ -102,6 +112,7 @@ export default function Tools() {
             size="w-5/10"
             isGlowing={glowingCategory === "most-used"}
             glowingCategory={glowingCategory}
+            isMobile={isMobile}
           />
           <Li
             bgGradient=" bg-gradient-to-br from-transparent   to-sky2A  "
@@ -116,6 +127,7 @@ export default function Tools() {
             size="w-7/10"
             isGlowing={glowingCategory === "most-used"}
             glowingCategory={glowingCategory}
+            isMobile={isMobile}
           />
           <Li
             bgGradient="  bg-gradient-to-b from-transparent via-transparent  to-mint2A"
@@ -130,6 +142,7 @@ export default function Tools() {
             alt="Supabase"
             isGlowing={glowingCategory === "favorite"}
             glowingCategory={glowingCategory}
+            isMobile={isMobile}
           />
           <Li
             bgGradient=" bg-gradient-to-b from-mauve1A via-mauve1 to-mauve2A "
@@ -141,6 +154,7 @@ export default function Tools() {
             size="w-6/10 filter-invert"
             alt="Radix-UI"
             glowingCategory={glowingCategory}
+            isMobile={isMobile}
           />
           <Li
             bgGradient="bg-gradient-to-b from-bronze1A via-orange1A via-55% to-orange3A "
@@ -152,6 +166,7 @@ export default function Tools() {
             alt="Astro"
             size=""
             glowingCategory={glowingCategory}
+            isMobile={isMobile}
           />
           <Li
             className="lt-xxs:a"
@@ -167,6 +182,7 @@ export default function Tools() {
             size="xxs:w-8/10"
             isGlowing={glowingCategory === "most-used"}
             glowingCategory={glowingCategory}
+            isMobile={isMobile}
           />
 
           <Li
@@ -182,6 +198,7 @@ export default function Tools() {
             size=""
             isGlowing={glowingCategory === "most-used"}
             glowingCategory={glowingCategory}
+            isMobile={isMobile}
           />
           <Li
             className="!hidden xxs:!flex col-span-2 justify-center"
@@ -193,6 +210,7 @@ export default function Tools() {
             src="/tool-logos/unocss.svg"
             alt="UnoCSS"
             glowingCategory={glowingCategory}
+            isMobile={isMobile}
           />
           <Li
             className="col-span-2"
@@ -205,6 +223,7 @@ export default function Tools() {
             alt="TailwindCSS"
             isGlowing={glowingCategory === "most-used"}
             glowingCategory={glowingCategory}
+            isMobile={isMobile}
           />
           <Li
             bgGradient="bg-gradient-to-b from-transparent via-transparent to-blue1A  "
@@ -219,6 +238,7 @@ export default function Tools() {
             alt="Solidjs"
             isGlowing={glowingCategory === "favorite"}
             glowingCategory={glowingCategory}
+            isMobile={isMobile}
           />
           <Li
             bgGradient="bg-gradient-to-b from-purple1 to-purple4  "
@@ -229,6 +249,7 @@ export default function Tools() {
             src="/tool-logos/vite.svg"
             alt="Vite"
             glowingCategory={glowingCategory}
+            isMobile={isMobile}
           />
           <Li
             bgGradient="bg-gradient-to-b from-slate2A via-indigo3A to-indigo4A "
@@ -240,6 +261,7 @@ export default function Tools() {
             alt="CSS"
             isGlowing={glowingCategory === "favorite"}
             glowingCategory={glowingCategory}
+            isMobile={isMobile}
           />
           <Li
             bgGradient=" bg-gradient-to-b from-base2A via-orange3A to-orange4A"
@@ -250,6 +272,7 @@ export default function Tools() {
             src="/tool-logos/html.svg"
             alt="HTML"
             glowingCategory={glowingCategory}
+            isMobile={isMobile}
           />
           <Li
             bgGradient=" bg-gradient-to-b from-sky1 via-sky2 to-sky3  "
@@ -262,6 +285,7 @@ export default function Tools() {
             size="w-9/10"
             isGlowing={glowingCategory === "painful"}
             glowingCategory={glowingCategory}
+            isMobile={isMobile}
           />
           {/* <Li className="  bg-amber4 dark"
           src="/tool-logos/javascript.svg" alt="JavaScript" size="w-9/10" /> */}
@@ -285,7 +309,7 @@ function Li(props) {
       <GlowingEffect
         spread={40}
         glow={true}
-        disabled={false}
+        disabled={props.isMobile}
         proximity={64}
         inactiveZone={0.01}
         borderWidth={1}
@@ -294,12 +318,12 @@ function Li(props) {
 
       <GlowOverlay
         className={`-z-3 rd-inherit  ${props?.glowColor ?? "bg-base4A"}
-        ${props.glowBlur ?? "blur-20"} mix-blend-overlay
+        ${props.glowBlur ? `md:${props.glowBlur}` : "md:blur-20"} mix-blend-overlay
         ${props.glowingCategory && props.isGlowing ? props.glowOpacity ?? "opacity-100" : "opacity-0"}
         transition-filter transition-opacity duration-1s ease`}
       />
       <BgOverlay
-        className="bg-base1 opacity-30 rd-inherit -z-2 backdrop-blur-20"
+        className="bg-base1 opacity-30 rd-inherit -z-2 md:backdrop-blur-20"
         style={{ top: 1, left: 1, right: 1, bottom: 1 }}
       />
       <BgOverlay

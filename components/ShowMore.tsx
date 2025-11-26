@@ -10,7 +10,7 @@ export default function ShowMore({ children, minHeight = "0fr" }) {
   return (
     <div className="">
       <div
-        className={`grid fade-to-b`}
+        className={`grid fade-to-b`}/*  */
         style={{
           gridTemplateRows: expanded ? `1fr ${minHeight}` : `0fr ${minHeight}`,
           maskImage: `linear-gradient(to bottom, black 0%,  rgba(0 0 0 / var(--fade-to-opacity)) 100%)`,

@@ -17,6 +17,25 @@ type Props = {
   whatIDid: string[];
   categories?: Category[];
   linkToProject?: string;
+  githubLink?: string;
+};
+
+const TOOL_ICONS: Record<string, string> = {
+  NextJS: "i-logos-nextjs-icon",
+  React: "i-logos-react",
+  "T3 Stack": "i-ph-stack-duotone",
+  Prisma: "i-logos-prisma",
+  TypeScript: "i-logos-typescript-icon",
+  "Server Components": "i-ph-hard-drives-duotone",
+  "Tailwind CSS": "i-logos-tailwindcss-icon",
+  PostgreSQL: "i-logos-postgresql",
+  "Framer Motion": "i-logos-framer",
+  MetaMask: "i-logos-metamask-icon",
+  Redux: "i-logos-redux",
+  NodeJS: "i-logos-nodejs-icon",
+  "AWS Services": "i-logos-aws",
+  Figma: "i-logos-figma",
+  Wordpress: "i-logos-wordpress-icon",
 };
 
 export default function WorkItemModalContent({
@@ -29,18 +48,27 @@ export default function WorkItemModalContent({
   whatIDid,
   categories,
   linkToProject,
+  githubLink,
 }: Props) {
   return (
     <div className="">
       <h3 className="H1">{title}</h3>
       <div className="h-3"></div>
       <p className="c-base11">{subtitle}</p>
-      {linkToProject && (
-        <a href={linkToProject} target='_blank' rel="noreferrer" >
-          Live Website
-          <Icon name="bf-i-ph-arrow-up-right" className="c-base11 fs-lg" />
-        </a>
-      )}
+      <div className="flex gap-4">
+        {linkToProject && (
+          <a href={linkToProject} target="_blank" rel="noreferrer" className="flex items-center gap-1 hover:underline">
+            Live Website
+            <Icon name="bf-i-ph-arrow-up-right" className="c-base11 fs-lg" />
+          </a>
+        )}
+        {githubLink && (
+          <a href={githubLink} target="_blank" rel="noreferrer" className="flex items-center gap-1 hover:underline">
+            Source
+            <Icon name="bf-i-ph-arrow-up-right" className="c-base11 fs-lg" />
+          </a>
+        )}
+      </div>
       <div className="h-6"></div>
       <Gallery images={imgs.map((img) => ({ imgObject: img, src: "", alt: "" }))} />
       {tools && tools.length > 0 && (
@@ -83,6 +111,18 @@ function Tools({ tools }) {
       <div className="h-3"></div>
       <ul className="flex gap-1.5 flex-wrap">
         {tools.map((t, index) => {
+          const iconClass = TOOL_ICONS[t];
+          if (iconClass) {
+            return (
+              <li
+                key={`technologies-used-${index}`}
+                title={t}
+                className="rd-full b-1 b-base6 p-2 flex items-center justify-center bg-base2"
+              >
+                <Icon name={iconClass} className="text-xl" />
+              </li>
+            );
+          }
           return (
             <li
               key={`technologies-used-${index}`}

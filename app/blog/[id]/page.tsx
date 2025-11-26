@@ -1,8 +1,11 @@
 import Icon from "@/components/ui/Icon";
 import Space from "@/components/ui/Space";
-import { getPostById, getAllPosts } from "@/lib/api";
+import { getPostById, getPostSlugs } from "@/lib/api";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
+export const revalidate = 60;
+export const dynamicParams = true;
 
 // Generate the post, note that this is a "react server component"! it is
 // allowed to be async
@@ -35,11 +38,9 @@ export default async function Post({ params: { id } }: { params: { id: string } 
 // This function can statically allow nextjs to find all the posts that you
 // have made, and statically generate them
 export async function generateStaticParams() {
-  const posts = await getAllPosts();
+  const slugs = await getPostSlugs();
 
-  return posts.map((post) => ({
-    id: post.id,
-  }));
+  return slugs.map((id) => ({ id }));
 }
 
 // Set the title of the page to be the post title, note that we no longer use

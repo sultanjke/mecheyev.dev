@@ -1,7 +1,7 @@
-export default function BluredCircle({ top, left, radius, bg, blur }) {
+export default function BluredCircle({ top, left, radius, bg, blur, className = "" }) {
   return (
     <div
-      className={`absolute rd-full -z-1 pointer-events-none select-none ${bg} `}
+      className={`absolute rd-full -z-1 pointer-events-none select-none ${bg} ${className}`}
       style={{
         top,
         left,

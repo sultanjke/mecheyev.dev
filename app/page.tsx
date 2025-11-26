@@ -25,8 +25,6 @@ export default async function Page() {
         <Space size="h-40 md:h-50" />
         <Tools />
         <Space size="h-40 md:h-50" />
-        {/* <Blog posts={posts}/> */}
-        {/* <Space size="h-40 md:h-50" /> */}
         <AboutMe />
         <Space size="h-40 md:h-50" />
         <ContactMe />
