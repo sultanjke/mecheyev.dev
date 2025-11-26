@@ -1,6 +1,7 @@
 // lib/api.ts
 import fs from 'fs'
 import matter from 'gray-matter'
+import yaml from 'js-yaml'
 import path from 'path'
 import { unified } from 'unified'
 import remarkGfm from 'remark-gfm'
@@ -72,19 +73,28 @@ export type Post = {
 export async function getPostById(id: string) {
   const realId = id.replace(/\.md$/, '')
   const fullPath = path.join(postsDirectory, `${realId}.md`)
-  const { data, content } = matter(await fs.promises.readFile(fullPath, 'utf8'))
+  const rawFile = await fs.promises.readFile(fullPath, 'utf8')
+  const { data, content } = matter(rawFile, {
+    engines: {
+      yaml: (source) => yaml.load(source) as object
+    }
+  })
  
   const html = await parser.process(content)
-  const date = data.date as Date
+  const parsedDate = data.date ? new Date(data.date) : null
+  const date =
+    parsedDate && !Number.isNaN(parsedDate.getTime())
+      ? parsedDate.toISOString().slice(0, 10)
+      : ''
 
   return {
     ...data,
     title: data.title as string,
     subtitle: data.subtitle as string,
     id: realId,
-    date: `${date.toISOString().slice(0, 10)}`,
+    date,
     html: html.value.toString(),
-    draft: data.draft as boolean
+    draft: Boolean(data.draft)
   }
 }
  
