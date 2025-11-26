@@ -64,7 +64,7 @@ const WORKS_DATA: WorkData = {
     whatIDid: ["Designed the entire UI/UX in Figma, focusing on a clean and professional look."],
   },
   mecheyevs: {
-    title: "Mecheyev S.",
+    title: "You're here!",
     subtitle: "A portfolio website to showcase my works",
     tools: ["NextJS", "TypeScript", "React", "Tailwind CSS"],
     description:
