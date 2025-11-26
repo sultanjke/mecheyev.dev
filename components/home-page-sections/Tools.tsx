@@ -327,7 +327,7 @@ function Li(props) {
 
       <GlowOverlay
         className={`-z-3 rd-inherit  ${props?.glowColor ?? "bg-base4A"}
-        ${props.glowBlur ? `md:${props.glowBlur}` : "md:blur-20"} mix-blend-overlay
+        ${props.glowBlur ?? "blur-20"} mix-blend-overlay
         ${props.glowingCategory && props.isGlowing ? props.glowOpacity ?? "opacity-100" : "opacity-0"}
         transition-filter transition-opacity duration-1s ease`}
       />
