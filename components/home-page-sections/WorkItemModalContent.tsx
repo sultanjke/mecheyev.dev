@@ -92,14 +92,14 @@ export default function WorkItemModalContent({
             return <li key={`${title}-what-I-did-${index}`}>{i}</li>;
           })}
       </ul>
-      {relatedBlogPost && (
+      {/* {relatedBlogPost && (
         <>
           <div className="h-6"></div>
           <p className="">Learn more about this project in the blog post below.</p>
           <div className="h-6"></div>
           <RelatedBlogPost post={relatedBlogPost} />
         </>
-      )}
+      )} */}
     </div>
   );
 }

@@ -17,15 +17,16 @@ export default function Gallery({ images }: { images: Image[] }) {
     <div>
       <div className="w-full  rd-3 p-3 bg-gradient-radial from-base4 via-base3 to-base2  b-base4 b-1 grid">
         <div
-          className="flex items-center justify-center w-full !aspect-ratio-16/9 max-h-100  "
+          className="flex items-center justify-center w-full !aspect-ratio-16/9 max-h-100 relative"
           style={{ gridArea: "1/1/-1/-1" }}
         >
           <Image
             src={currentImage.imgObject ?? currentImage.src}
             alt={currentImage.alt}
-            className="min-w-0 max-h-full max-w-full  object-contain "
-            />
-            </div>
+            fill
+            className="object-contain"
+          />
+        </div>
         {images.length > 1 && (
           <div style={{ gridArea: "1/1/-1/-1" }} className="flex items-center p-1 ">
             <Button
@@ -73,7 +74,9 @@ export default function Gallery({ images }: { images: Image[] }) {
                       key={`image-work-${index}`}
                       src={image.imgObject ?? image.src}
                       alt=""
-                      className={`w-40 h-20 min-w-0 rd-1.5 shadow-xl object-cover 
+                      width={160}
+                      height={80}
+                      className={`w-20 h-10 md:w-40 md:h-20 min-w-0 rd-1.5 shadow-xl object-cover 
                       ${currentImageIndex === index ? " grayscale-0" : "grayscale-100"}
                       hover:grayscale-0
                       `}
