@@ -7,10 +7,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Hamid K. Blog",
-  metadataBase: new URL("https://awww.dev"),
+  description: "Mecheyev S. Blog",
+  metadataBase: new URL("https://mecheyev.dev"),
   openGraph: {
-    title: "Blog | Hamid K.",
+    title: "Blog | Mecheyev S.",
   },
   alternates: {
     canonical: "/blog",

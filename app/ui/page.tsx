@@ -36,7 +36,7 @@ export default function Page() {
           <BluredCircle radius={200} top="20%" left="85%" bg="bg-violet2" blur="100px" />
           <BluredCircle radius={200} top="90%" left="5%" bg="bg-cyan2" blur="100px" />
 
-          <p className="c-base11">awww.dev</p>
+          <p className="c-base11">mecheyev.dev</p>
           <div className="h-6"></div>
           <h1 className="H1 leading-10">
             Website Design &
@@ -113,7 +113,7 @@ export default function Page() {
                 <p className="flex flex-col h-full ">
                   <span className="c-base11">Visit work samples at:</span>
                   <span className="block mt-auto"></span>
-                  <span className="font-mono tracking-wide fs-xl">https://awww.dev</span>
+                  <span className="font-mono tracking-wide fs-xl">https://mecheyev.dev</span>
                 </p>
               </ItemCard>
             </div>

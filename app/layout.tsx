@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     // canonical: '/blog',
   },
   description: description,
-  metadataBase: new URL("https://awww.dev"),
+  metadataBase: new URL("https://mecheyev.dev"),
   twitter: {
     card: "summary_large_image",
     title: title,
     description: description,
     creator: title,
-    images: ["https://awww.dev/opengraph-image.jpg"], // Must be an absolute URL
+    images: ["https://mecheyev.dev/opengraph-image.jpg"], // Must be an absolute URL
   },
   openGraph: {
     title: title,
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "Mecheyev S.",
     images: [
       {
-        url: "https://awww.dev/opengraph-image.jpg", // Must be an absolute URL
+        url: "https://mecheyev.dev/opengraph-image.jpg", // Must be an absolute URL
         width: 1200,
         height: 630,
       },
@@ -53,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html className="dark-theme style-scroll-bar" lang="en">
       <head>
-        <script defer data-domain="awww.dev" src="https://plausible.io/js/script.js"></script>
+        <script defer data-domain="mecheyev .dev" src="https://plausible.io/js/script.js"></script>
       </head>
       <body className={`dark-theme bg-base1 c-base12 relative isolate`}>
         <GlobalProvider>

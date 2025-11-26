@@ -92,15 +92,15 @@ function MyComp({ bgColor = "", textColor = "", buttonColor = "" }) {
       <button className={`bg-accent9 p-2 px-4 rd-1 ${buttonColor}`}>Button</button>
     </div>
   );
-} 
+}
 ```
 
 and use it like this:
 
 ```jsx
-<MyComp bgColor="bg-cyan3" textColor="text-slate11" buttonColor="bg-cyan9" /> 
-<MyComp bgColor="bg-red3" textColor="text-slate11" buttonColor="bg-red9" /> 
-<MyComp bgColor="bg-pink3" textColor="text-blue11" buttonColor="bg-pink9" /> 
+<MyComp bgColor="bg-cyan3" textColor="text-slate11" buttonColor="bg-cyan9" />
+<MyComp bgColor="bg-red3" textColor="text-slate11" buttonColor="bg-red9" />
+<MyComp bgColor="bg-pink3" textColor="text-blue11" buttonColor="bg-pink9" />
 ```
 
 It is doable. But it's a lot of work. Notice that I have to have a prop for every color I want to control. Also, I need to pass a complete className (like "bg-red9") for it to work. I can't send "red9" or just "9" (unless I have safelisted those colors and in my component I do something like `bg-red${step}`, which is even more work to do.)
@@ -242,4 +242,4 @@ This will save you a lot of time! You don't need to hardcode colors into compone
 ## Conclusion
 
 This is my first serious npm package I release and it's was different experience. But I am very happy with the results.
-Please see the [npm page](https://www.npmjs.com/package/unocss-preset-radix-ui-colors) for more information or checkout the source code in [my GitHub](https://github.com/awwwdev/unocss-preset-radix-colors). If you liked, please don't forget to give it a star.
+Please see the [npm page](https://www.npmjs.com/package/unocss-preset-radix-ui-colors) for more information or checkout the source code in [my GitHub](https://github.com/mecheyev.dev/unocss-preset-radix-colors). If you liked, please don't forget to give it a star.

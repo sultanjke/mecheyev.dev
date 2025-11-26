@@ -31,7 +31,7 @@ const MobileSideMenuOverlay = () => {
   const { isSideMenuOpen, setIsSideMenuOpen } = useGlobalContex();
   return (
     <div
-      className={` drawer-overlay sm:hidden fixed z-20 inset-0 bg-black2A 
+      className={` drawer-overlay sm:hidden fixed z-20 inset-0 bg-black2A
              transition-opacity duration-600 ease-in-out backdrop-blur-4
              ${isSideMenuOpen ? "opacity-100 select-none" : "pointer-events-none opacity-0 "}`}
       title="Close Menu"
@@ -99,7 +99,7 @@ function CollapseToggle({ isCollapsed, setIsCollapsed }) {
         aria-label="Toggle italic"
         className={`bg-base3
           hover:bg-base4
-      data-[state=on]:bg-base3  
+      data-[state=on]:bg-base3
        flex h-6 w-6  items-center justify-center rounded b-1 b-base3  leading-4 `}
       >
         <span className={"sr-only"}>Callpase Side Nav</span>
@@ -130,7 +130,7 @@ function PublicWebsiteNav({ setIsSideMenuOpen }) {
           setIsSideMenuOpen(false);
         }}
       >
-        awww.dev
+        mecheyev.dev
       </NavLink>
       <NavLink
         href="#works"
@@ -150,7 +150,7 @@ function PublicWebsiteNav({ setIsSideMenuOpen }) {
       >
         Tools
       </NavLink>
-      <NavLink
+      {/* <NavLink
         href="#blog"
         className="hover:c-base11"
         onClick={() => {
@@ -158,9 +158,9 @@ function PublicWebsiteNav({ setIsSideMenuOpen }) {
         }}
       >
         Blog
-      </NavLink>
+      </NavLink> */}
       <NavLink
-        href="#blog"
+        href="#contact"
         className="hover:c-base11"
         onClick={() => {
           setIsSideMenuOpen(false);
