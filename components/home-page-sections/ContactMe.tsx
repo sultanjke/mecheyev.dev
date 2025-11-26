@@ -32,7 +32,7 @@ export default function ContactMe() {
             <li>
               <Magnetic>
                 <GlassLinkButton target="_blank" href="https://github.com/sultanjke">
-                  <Icon name="bf-i-bxl-github" className="fs-lg -mb-0.2em" />
+                  <Icon name="bf-i-ph-github-logo" className="fs-lg -mb-0.2em" />
                   GitHub
                 </GlassLinkButton>
               </Magnetic>
@@ -40,7 +40,7 @@ export default function ContactMe() {
             <li>
               <Magnetic>
                 <GlassLinkButton target="_blank" href="https://www.linkedin.com/in/mecheyev/">
-                  <Icon name="bf-i-bxl-linkedin-square" className="fs-lg -mb-0.2em " />
+                  <Icon name="bf-i-ph-linkedin-logo" className="fs-lg -mb-0.2em " />
                   LinkedIn
                 </GlassLinkButton>
               </Magnetic>
@@ -48,7 +48,7 @@ export default function ContactMe() {
             <li>
               <Magnetic>
                 <GlassLinkButton target="_blank" href="https://t.me/mecheyev">
-                  <Icon name="bf-i-bxl-telegram" className="fs-lg -mb-0.2em " />
+                  <Icon name="bf-i-ph-telegram-logo" className="fs-lg -mb-0.2em " />
                   Telegram
                 </GlassLinkButton>
               </Magnetic>
