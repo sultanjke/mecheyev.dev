@@ -7,6 +7,8 @@ type WorkDataItem = {
   startMobile: string;
   endMobile: string;
   whatIDid: string[];
+  githubLink?: string;
+  projectLink?: string;
 };
 type WorkData = Record<string, WorkDataItem>;
 
@@ -24,6 +26,8 @@ const EXPERIENCES_DATA: WorkData = {
       "Improved data storage and traceability by deploying a local PostgreSQL database to store structured API responses and maintain detailed execution logs of script;",
       "Demonstrated the feasibility of a modern Data Lakehouse architecture by building a proof of concept using MinIO, Apache Iceberg, PySpark, Project Nessie, and Dremio, enabling structured data loading, analysis, and support for BI reporting and visualization."
     ],
+    githubLink: "https://github.com/sultanjke/bin-parsing",
+    projectLink: "https://github.com/sultanjke/datalakehouse-concept",
   },
   tco: {
     company: "Tengizchevroil",
@@ -38,6 +42,7 @@ const EXPERIENCES_DATA: WorkData = {
       "Enhanced system security and user oversight by identifying and flagging inactive employee accounts (no activity within 3 months) through analysis of extracted user operational logs;",
       "Streamlined user identity management by integrating the solution with Active Directory via LDAP, enabling the retrieval of detailed employee information, including full name, corporate email, and supervisor — using their Chevron Account Information (CAI)."
     ],
+    githubLink: "https://github.com/sultanjke/log-analyzer",
   },
   ncoc: {
     company: "North Caspian Operating Company N. V. (NCOC)",
@@ -52,6 +57,7 @@ const EXPERIENCES_DATA: WorkData = {
       "Structured users with their accessibility and optimized data handling processes to enhance data security and compliance;",
       "Created detailed flowcharts to visualize data access points and streamline decision-making for improved data accessibility."
     ],
+    githubLink: "Links Not Applicable due to Confidentiality Agreements",
   },
   bitech: {
     company: "BI - TECH, Freelance",

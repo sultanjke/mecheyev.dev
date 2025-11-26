@@ -5,6 +5,8 @@ import GradientMask from "../ui/GradientMask";
 import MobileOnly from "../ui/MobileOnly";
 import Space from "../ui/Space";
 import BluredCircle from "./BluredCircle";
+import LinkButton from "../ui/button/LinkButton";
+import Icon from "../ui/Icon";
 
 export default function Experiences() {
   return (
@@ -40,7 +42,29 @@ export default function Experiences() {
   );
 }
 
-function WorkExperience({ title, start, end, startMobile, endMobile, company, logo, whatIDid }) {
+function WorkExperience({
+  title,
+  start,
+  end,
+  startMobile,
+  endMobile,
+  company,
+  logo,
+  whatIDid,
+  githubLink,
+  projectLink,
+}: {
+  title: string;
+  start: string;
+  end: string;
+  startMobile: string;
+  endMobile: string;
+  company: string;
+  logo: string;
+  whatIDid: string[];
+  githubLink?: string;
+  projectLink?: string;
+}) {
   return (
     <li className="-ml-1.75  flex gap-2">
       <div className="w-3 h-3 bg-[#5a6169] rd-1 shrink-0 grow-0"></div>
@@ -80,6 +104,37 @@ function WorkExperience({ title, start, end, startMobile, endMobile, company, lo
                 return <Li key={`what-i-did-${title}-${index}`}>{item}</Li>;
               })}
           </ul>
+          <div className="flex gap-2 mt-4 ml-3">
+            {githubLink && (
+              githubLink.startsWith('http') ? (
+                <LinkButton
+                  href={githubLink}
+                  target="_blank"
+                  variation="ghost"
+                  className="flex items-center gap-1 hover:underline text-white !h-auto !py-1 !px-3 text-xs"
+                >
+                  <Icon name="bf-i-ph-github-logo" />
+                  Source
+                </LinkButton>
+              ) : (
+                <div className="flex items-center gap-1 text-gray-400 text-xs">
+                  <Icon name="bf-i-ph-lock-key mr-1" />
+                  {githubLink}
+                </div>
+              )
+            )}
+            {projectLink && (
+              <LinkButton
+                href={projectLink}
+                target="_blank"
+                variation="ghost"
+                className="flex items-center gap-1 hover:underline text-white !h-auto !py-1 !px-3 text-xs"
+              >
+                <Icon name="bf-i-ph-arrow-up-right" />
+                Project
+              </LinkButton>
+            )}
+          </div>
         </ShowMore>
 
         <Space size="xs:h-2 h-8" />
