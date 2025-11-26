@@ -1,11 +1,23 @@
+"use client";
+
 import LinkButton from "@/components/ui/button/LinkButton";
+import Button from "@/components/ui/button";
 import BluredCircle from "./BluredCircle";
 import Icon from "@/components/ui/Icon";
 import Space from "../ui/Space";
 import GradientBorderOverlay from "../ui/GradientBorderOverlay";
 import { Magnetic } from "@/components/ui/magnetic";
+import { getCalApi } from "@calcom/embed-react";
+import { useEffect } from "react";
 
 export default function ContactMe() {
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: "30min" });
+      cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
+    })();
+  }, []);
+
   return (
     <section className="relative isolate">
       <BluredCircle radius={250} top="60%" left="70%" bg="bg-sage1A" blur="200px" />
@@ -21,6 +33,19 @@ export default function ContactMe() {
           <p className="c-gray11">Feel free to contact me. I try to reach back to you soon.</p>
           <div className="h-6"></div>
           <ul className="grid xs:flex  gap-4 ">
+            <li>
+              <Magnetic>
+                <GlassButton
+                  white
+                  data-cal-namespace="30min"
+                  data-cal-link="mecheyev/30min"
+                  data-cal-config='{"layout":"month_view"}'
+                >
+                  <Icon name="bf-i-ph-phone" className="-mb-0.2em" />
+                  Schedule a call
+                </GlassButton>
+              </Magnetic>
+            </li>
             <li>
               <Magnetic>
                 <GlassLinkButton accent href="mailto:s.mecheyev@outlook.com">
@@ -57,6 +82,48 @@ export default function ContactMe() {
         </div>
       </div>
     </section>
+  );
+}
+
+function GlassButton({
+  children,
+  accent = false,
+  white = false,
+  ...props
+}: {
+  children: React.ReactNode;
+  accent?: boolean;
+  white?: boolean;
+} & React.ComponentPropsWithoutRef<"button">) {
+  return (
+    <Button
+      variation="outline"
+      preStyled={false}
+      className={`b-1 fw-500 cursor-pointer appearance-none underline-none text-center whitespace-nowrap leading-1em
+      focus-visible:outline-accent11
+      focus:outline-accent9
+      focus:outline-offset-3
+      focus:outline-1.5
+      items-center gap-3 lt-xs:!grid  xs:min-w-10 h-2.75em px-1em rd-0.5em block flex items-center justify-center
+      ${
+        white
+          ? "bg-white c-black hover:bg-gray-200 b-transparent"
+          : `!b-transparent relative !b-0 !rd-2 !bg-transparent  from-transparent bg-gradient-to-br ${
+              accent ? "to-accent3A hover:to-accent4A" : "to-base3A hover:to-base4A"
+            }`
+      }
+      transition ease duration-150ms relative group`}
+      style={{ gridTemplateColumns: "1em 1fr 1em" }}
+      {...props}
+    >
+      {!white && (
+        <GradientBorderOverlay
+          direction="to bottom right"
+          from={accent ? "from-accent5A group:hover:from-accent6A" : "from-base5"}
+        />
+      )}
+      {children}
+    </Button>
   );
 }
 

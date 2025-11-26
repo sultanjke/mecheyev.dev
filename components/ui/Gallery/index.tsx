@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useMemo, useState } from "react";
 import Button from "../button";
 import Icon from "../Icon";
@@ -76,7 +76,7 @@ export default function Gallery({ images }: { images: Image[] }) {
                       alt=""
                       width={160}
                       height={80}
-                      className={`w-20 h-10 md:w-40 md:h-20 min-w-0 rd-1.5 shadow-xl object-cover 
+                      className={`w-20 h-10 md:w-40 md:h-20 min-w-0 rd-1.5 shadow-xl object-cover
                       ${currentImageIndex === index ? " grayscale-0" : "grayscale-100"}
                       hover:grayscale-0
                       `}

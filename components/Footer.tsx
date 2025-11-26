@@ -14,7 +14,7 @@ const Footer = () => {
           <div className="b-t-1 b-base4 mt-4 pt-8 pb-8 text-sm c-base11">
             <TextLoop className="text-xs text-zinc-500">
               <span>© 2025 Sultan Mecheyev</span>
-              <span>They pose as humans even though they have no understanding of the human heart.</span>
+              <span>Build. Ship. Earn.</span>
             </TextLoop>
           </div>
         </div>
