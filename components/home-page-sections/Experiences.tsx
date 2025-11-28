@@ -105,8 +105,8 @@ function WorkExperience({
               })}
           </ul>
           <div className="flex gap-2 mt-4 ml-3">
-            {githubLink && (
-              githubLink.startsWith('http') ? (
+            {githubLink &&
+              (githubLink.startsWith("http") ? (
                 <LinkButton
                   href={githubLink}
                   target="_blank"
@@ -121,8 +121,7 @@ function WorkExperience({
                   <Icon name="bf-i-ph-lock-key mr-1" />
                   {githubLink}
                 </div>
-              )
-            )}
+              ))}
             {projectLink && (
               <LinkButton
                 href={projectLink}

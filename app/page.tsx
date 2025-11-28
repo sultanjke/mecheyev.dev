@@ -7,6 +7,7 @@ import Hero from "@/components/home-page-sections/Hero";
 import Tools from '@/components/home-page-sections/Tools';
 import Works from '@/components/home-page-sections/Works';
 import Space from "@/components/ui/Space";
+import Education from "@/components/home-page-sections/Education"
 import { getAllPosts } from '@/lib/api';
 
 
@@ -20,6 +21,8 @@ export default async function Page() {
         <Works posts={posts} />
         <Space size="h-40 md:h-50" />
         <Experiences />
+        <Space size="h-40 md:h-50" />
+        <Education />
         <Space size="h-40 md:h-50" />
         <Achievements />
         <Space size="h-40 md:h-50" />
