@@ -55,7 +55,7 @@ const WORKS_DATA: WorkData = {
   },
   kbc: {
     title: "Kausar Business Consulting",
-    subtitle: "UI & UX Design for the for Kausar Business Consulting Agency",
+    subtitle: "UI & UX Design for the Kausar Business Consulting Agency",
     tools: ["Figma"],
     imgs: [MomentaImage],
     githubLink: "https://www.figma.com/proto/ImFytyA2QUKEcnx8kCAVav/BI---TECH--Kausar-Business-Consulting--Project?page-id=0%3A1&node-id=47-2&viewport=1591%2C451%2C0.36&t=D5PrW2z1m2Fxf8NU-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=47%3A2",
